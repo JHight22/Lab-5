@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 
-import java.util.Random;
-
 /**
  *
  * @author jared
@@ -14,23 +12,29 @@ public class Question5Demo {
 
     public static void main(String[] args) {
 
-        
-        Random randomNumbers = new Random();
-        int n = 55;
-        
-        int randomArray = randomNumbers.nextInt();
-        int[] array = new int[randomArray];
+        int[] integerArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int number = 6;
 
-        System.out.println("Numbers greater than " + n + "in the array are: " + getArrayExample(array, n));
+        int[] numbersGreaterThanNReturned = numbersGreaterThanN(integerArray, number);
+
+        for (int i = 0; i < numbersGreaterThanNReturned.length; i++) {
+            if (numbersGreaterThanNReturned[i] != 0) {
+                System.out.println(numbersGreaterThanNReturned[i]);
+            }
+        }
 
     }
 
-    public static void getArrayExample(int array[], int n) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > n) {
-                System.out.println(array[i]);
+    public static int[] numbersGreaterThanN(int[] integerArray, int number) {
+        int[] numbersToBeReturned = new int[integerArray.length];
+        int numbersToBeReturned2 = 0;
+        for (int i = 0; i < integerArray.length; i++) {
+            if (integerArray[i] > number) {
+                numbersToBeReturned[numbersToBeReturned2] = integerArray[i];
+                numbersToBeReturned2 += 1;
             }
         }
+        return numbersToBeReturned;
     }
 
 }
